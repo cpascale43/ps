@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { CampaignProvider } from "./contexts/campaigns";
+import { SegmentProvider } from "./contexts/segments";
 import { Home, ViewCampaign, AddCampaign } from "./pages";
 
 // {
@@ -18,11 +19,13 @@ import { Home, ViewCampaign, AddCampaign } from "./pages";
 function App() {
   return (
     <CampaignProvider>
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/campaign/new" component={AddCampaign} exact />
-        <Route path="/campaign/:id" component={ViewCampaign} exact />
-      </Switch>
+      <SegmentProvider>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/campaign/new" component={AddCampaign} exact />
+          <Route path="/campaign/:id" component={ViewCampaign} exact />
+        </Switch>
+      </SegmentProvider>
     </CampaignProvider>
   );
 }

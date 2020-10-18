@@ -3,7 +3,7 @@ import React from "react";
 const Label = ({ labelText, id }) => {
   return (
     <label htmlFor={id} className="labelStyles">
-      {labelText}
+      <span style={{ fontWeight: "bold" }}>{labelText}</span>
     </label>
   );
 };

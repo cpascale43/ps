@@ -1,23 +1,24 @@
-import React from 'react'
+import React from "react";
 
-import CampaignListItem from './CampaignListItem'
+import CampaignListItem from "./CampaignListItem";
 
-const CampaignList = ({...props}) => {
+const CampaignList = ({ ...props }) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Campaign</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.campaigns.map((c) => (
+          <CampaignListItem key={c.id} {...c} />
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
-    return (
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Campaign</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {props.campaigns.map(c => <CampaignListItem key={c.id} {...c} />)}
-            </tbody>
-        </table>
-    )
-}
-
-export default CampaignList
+export default CampaignList;

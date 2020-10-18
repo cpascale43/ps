@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// import Button from "../AddCampaign/Button";
+import Button from "../AddCampaign/Button";
 import Column from "../Column";
 import Row from "../Row";
 import Label from "./Label";
@@ -17,7 +17,7 @@ const TagSelect = ({ handleClick }) => {
 
   return (
     <div className="form-group">
-      <Label id={"selectSegment"} labelText={"Add Tags"} />
+      <Label id={"selectSegment"} labelText={"Tags"} />
       <Row className="form-group">
         <Column>
           <select
@@ -31,20 +31,14 @@ const TagSelect = ({ handleClick }) => {
           </select>
         </Column>
         <Column>
-          <button
-            className="btn btn-outline-primary"
+          <Button
+            classes={"btn btn-outline-primary"}
             onClick={(e) => {
               e.preventDefault();
               handleClick(selectedTag);
             }}
-          >
-            Insert Tag
-          </button>
-          {/* <Button
-            classes={"btn btn-outline-primary"}
-            onClick={() => handleClick(selectedTag)}
             buttonText={"Insert Tag"}
-          /> */}
+          />
         </Column>
       </Row>
     </div>

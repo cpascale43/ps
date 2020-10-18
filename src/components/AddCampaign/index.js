@@ -4,14 +4,17 @@ import { useHistory } from "react-router-dom";
 import Button from "./Button";
 import { CampaignContext } from "../../contexts/campaigns";
 import TextInput from "../Form/TextInput";
+import MediaInput from "../Form/MediaInput";
 import TextArea from "../Form/TextArea";
 import TagSelect from "../Form/TagSelect";
+import SegmentSelect from "../Form/SegmentSelect";
+import Form from "../Form"
 
 const AddCampaignForm = ({ props }) => {
   let history = useHistory();
   const { addCampaign } = useContext(CampaignContext);
-  const [campaignForm, setCampaignForm] = useState({
-    status: "",
+  const [campaignData, setCampaignData] = useState({
+    status: "Preview",
     id: null,
     name: "",
     text: "",
@@ -20,49 +23,63 @@ const AddCampaignForm = ({ props }) => {
     media: null,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (key, value) => {
     // do something onChanges
-    setCampaignForm({ ...campaignForm, [e.target.name]: e.target.value });
+
+    if (key === "media") {
+      value = URL.createObjectURL(value);
+    }
+    setCampaignData({ ...campaignData, [key]: value });
   };
 
-  const handleClick = (tag) => {
-    setCampaignForm({
-      ...campaignForm,
-      text: campaignForm.text + tag,
-      tags: [...campaignForm.tags, tag],
+  // adds the tag's text to the campaign's message
+  const handleClickTags = (tag) => {
+    setCampaignData({
+      ...campaignData,
+      text: campaignData.text + tag,
+      tags: [...campaignData.tags, tag],
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addCampaign(campaignForm);
+    addCampaign(campaignData);
     history.push("/");
   };
 
   return (
-    <form>
+    <Form>
       <TextInput
         name={"name"}
         id={"name"}
-        value={campaignForm.name}
+        value={campaignData.name}
         labelText={"Name"}
-        handleChange={handleChange}
+        handleChange={(e) => handleChange("name", e.target.value)}
       />
       <TextArea
         name={"text"}
         id={"text"}
-        value={campaignForm.text}
+        value={campaignData.text}
         labelText={"Message"}
-        handleChange={handleChange}
+        handleChange={(e) => handleChange("text", e.target.value)}
       />
-      <TagSelect handleClick={handleClick} />
+      <SegmentSelect handleChange={handleChange} />
+      <TagSelect handleClick={handleClickTags} />
+      <MediaInput
+        handleChange={(e) => handleChange("media", e.target.files[0])}
+      />
       <Button
         classes={"btn btn-primary"}
         buttonText={"Add Campaign"}
         onClick={handleSubmit}
         type={"submit"}
       />
-    </form>
+      <Button
+        classes={"btn btn-danger ml-2"}
+        buttonText={"Cancel"}
+        onClick={() => history.push("/")}
+      />
+    </Form>
   );
 };
 

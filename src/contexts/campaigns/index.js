@@ -5,7 +5,7 @@ import campaignState, {
   ADD_CAMPAIGN,
   EDIT_CAMPAIGN,
 } from "./reducer";
-import data from "../../data/campaigns";
+import data from "../../data";
 
 const initialState = data;
 

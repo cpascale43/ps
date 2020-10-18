@@ -24,7 +24,6 @@ const EditCampaignForm = ({ campaign }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(campaignForm);
     editCampaign(campaignForm);
   };
 

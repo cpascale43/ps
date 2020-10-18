@@ -1,7 +1,7 @@
 import React from "react";
 
-const Form = ({ props }) => {
-  return <form onSubmit={props.onSubmit}>{props.children}</form>;
+const Form = ({ children }) => {
+  return <form>{children}</form>;
 };
 
 export default Form;
