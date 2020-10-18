@@ -4,14 +4,13 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import Container from "./Container";
-import CampaignForm from "./CampaignForm";
+import EditCampaign from "./EditCampaign";
 import { CTRText, Name, Message, Image } from "./index";
 import { CampaignContext } from "../contexts/campaigns";
 
 const Campaign = ({ id }) => {
   const [campaign, setCampaign] = useState({});
   const { campaigns } = useContext(CampaignContext);
-  console.log("hi from campaign component", campaign);
 
   useEffect(() => {
     const selectedCampaign = campaigns.filter((c) => c.id === Number(id));
@@ -21,7 +20,7 @@ const Campaign = ({ id }) => {
   if (campaign && campaign.status === "Preview") {
     return (
       <Container>
-        <CampaignForm campaign={campaign} />
+        <EditCampaign campaign={campaign}/>
       </Container>
     );
   } else if (campaign && campaign.status === "Sent") {

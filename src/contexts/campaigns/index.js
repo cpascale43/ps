@@ -38,8 +38,6 @@ export const CampaignProvider = ({ children }) => {
     <CampaignContext.Provider
       value={{
         campaigns: state.campaigns,
-        // sentCampaigns: state.campaigns.filter((c) => c.status === "Sent"),
-        // previewCampaigns: state.campaigns.filter((c) => c.status === "Preview"),
         removeCampaign,
         addCampaign,
         editCampaign,

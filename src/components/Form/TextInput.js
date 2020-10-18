@@ -1,20 +1,15 @@
-// name, message
+// name
 
 import React from "react";
 import Label from "./Label";
-import InputField from "./InputField";
+import TextInputField from "./TextInputField";
 import InputFieldContainer from "./InputFieldContainer";
 
-const TextField = ({ name, id, value, labelText }) => {
-  const handleChange = () => {
-    // do something onChange
-  };
-
+const TextInput = ({ name, id, value, labelText, handleChange }) => {
   return (
     <InputFieldContainer>
       <Label labelText={labelText} />
-      <InputField
-        type={"text"}
+      <TextInputField
         id={id}
         name={name}
         value={value}
@@ -24,4 +19,4 @@ const TextField = ({ name, id, value, labelText }) => {
   );
 };
 
-export default TextField;
+export default TextInput;

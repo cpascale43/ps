@@ -14,9 +14,12 @@ export default (state, action) => {
         ),
       };
     case ADD_CAMPAIGN:
+      const newCampaign = action.payload;
+      newCampaign.id = state.campaigns.length + 1;
+      
       return {
         ...state,
-        campaigns: [...state.campaigns, action.payload],
+        campaigns: [...state.campaigns, newCampaign],
       };
     case EDIT_CAMPAIGN:
       const updatedCampaign = action.payload;

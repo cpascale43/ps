@@ -3,7 +3,6 @@ import React from 'react'
 import CampaignListItem from './CampaignListItem'
 
 const CampaignList = ({...props}) => {
-    console.log('campaign list props', props)
 
     return (
         <table>
