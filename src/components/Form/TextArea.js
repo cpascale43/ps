@@ -9,7 +9,13 @@ const TextArea = ({ name, id, labelText, value, handleChange }) => {
   return (
     <InputFieldContainer>
       <Label labelText={labelText} />
-      <textarea id={id} name={name} value={value} onChange={handleChange} />
+      <textarea
+        className="form-control"
+        id={id}
+        name={name}
+        value={value}
+        onChange={handleChange}
+      />
       {/* <TextAreaField
         id={id}
         name={name}

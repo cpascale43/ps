@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
-import SubmitButton from "./SubmitButton";
+import Button from "./Button";
 import { CampaignContext } from "../../contexts/campaigns";
 import TextInput from "../Form/TextInput";
 import TextArea from "../Form/TextArea";
 import TagSelect from "../Form/TagSelect";
 
 const AddCampaignForm = ({ props }) => {
+  let history = useHistory();
   const { addCampaign } = useContext(CampaignContext);
   const [campaignForm, setCampaignForm] = useState({
     status: "",
@@ -26,18 +28,19 @@ const AddCampaignForm = ({ props }) => {
   const handleClick = (tag) => {
     setCampaignForm({
       ...campaignForm,
+      text: campaignForm.text + tag,
       tags: [...campaignForm.tags, tag],
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(campaignForm);
     addCampaign(campaignForm);
+    history.push("/");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <TextInput
         name={"name"}
         id={"name"}
@@ -53,7 +56,12 @@ const AddCampaignForm = ({ props }) => {
         handleChange={handleChange}
       />
       <TagSelect handleClick={handleClick} />
-      <SubmitButton buttonText={"Add campaign"} />
+      <Button
+        classes={"btn btn-primary"}
+        buttonText={"Add Campaign"}
+        onClick={handleSubmit}
+        type={"submit"}
+      />
     </form>
   );
 };

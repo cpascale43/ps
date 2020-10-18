@@ -1,28 +1,52 @@
 import React, { useState } from "react";
 
+// import Button from "../AddCampaign/Button";
+import Column from "../Column";
+import Row from "../Row";
+import Label from "./Label";
+
+const TagOption = ({ ...tag }) => <option value={tag.value}>{tag.name}</option>;
+
 const TagSelect = ({ handleClick }) => {
-  const [selectedTag, setSelectedTag] = useState({});
+  const [selectedTag, setSelectedTag] = useState("{shop_link}");
   const [tagOptions] = useState([
-    { id: 0, name: "shop_link" },
-    { id: 1, name: "shop_name" },
-    { id: 2, name: "first_name" },
+    { id: 0, name: "Shop Link", value: "{shop_link}" },
+    { id: 1, name: "Shop Name", value: "{shop_name}" },
+    { id: 2, name: "First Name", value: "{first_name}" },
   ]);
 
   return (
     <div className="form-group">
-      <label htmlFor="selectSegment">Add Tags</label>
-      <select
-        className="form-control"
-        id="tagSelect"
-        onChange={(e) => setSelectedTag(e.target.value)}
-      >
-        {tagOptions.map((t) => (
-          <option key={t.id} value={t.name}>
-            {t.name}
-          </option>
-        ))}
-      </select>
-      <button onClick={() => handleClick(selectedTag)}>Insert Tag</button>
+      <Label id={"selectSegment"} labelText={"Add Tags"} />
+      <Row className="form-group">
+        <Column>
+          <select
+            className="form-control"
+            id="tagSelect"
+            onChange={(e) => setSelectedTag(e.target.value)}
+          >
+            {tagOptions.map((t) => (
+              <TagOption key={t.id} {...t} />
+            ))}
+          </select>
+        </Column>
+        <Column>
+          <button
+            className="btn btn-outline-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick(selectedTag);
+            }}
+          >
+            Insert Tag
+          </button>
+          {/* <Button
+            classes={"btn btn-outline-primary"}
+            onClick={() => handleClick(selectedTag)}
+            buttonText={"Insert Tag"}
+          /> */}
+        </Column>
+      </Row>
     </div>
   );
 };
