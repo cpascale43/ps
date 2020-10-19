@@ -1,11 +1,13 @@
 // Form, Campaign
 
 import React from "react";
+import { useParams } from "react-router-dom";
+
 import Layout from "../components/Layout";
 import CampaignView from "../components/CampaignView";
 
-const ViewCampaign = (route) => {
-  const id = route.match.params.id;
+const CampaignPage = () => {
+  const { id } = useParams();
 
   return (
     <Layout>
@@ -14,4 +16,4 @@ const ViewCampaign = (route) => {
   );
 };
 
-export default ViewCampaign;
+export default CampaignPage;

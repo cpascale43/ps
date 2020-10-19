@@ -23,7 +23,7 @@ const TagSelect = ({ handleClick }) => {
         <Column>
           <select
             className="form-control"
-            id="tagSelect"
+            id="selectTags"
             onChange={(e) => setSelectedTag(e.target.value)}
           >
             {tagOptions.map((t) => (

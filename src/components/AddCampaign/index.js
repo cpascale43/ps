@@ -8,7 +8,7 @@ import MediaInput from "../Form/MediaInput";
 import TextArea from "../Form/TextArea";
 import TagSelect from "../Form/TagSelect";
 import SegmentSelect from "../Form/SegmentSelect";
-import Form from "../Form"
+import Form from "../Form";
 
 const AddCampaignForm = ({ props }) => {
   let history = useHistory();
@@ -24,8 +24,6 @@ const AddCampaignForm = ({ props }) => {
   });
 
   const handleChange = (key, value) => {
-    // do something onChanges
-
     if (key === "media") {
       value = URL.createObjectURL(value);
     }

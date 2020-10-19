@@ -8,6 +8,7 @@ const data = {
       status: "Sent",
       segment_id: 1,
       media: "https://images.unsplash.com/photo-1556804335-2fa563e93aae",
+      alt: "A glass of pink lemonade on a pink background",
       stats: {
         sent: 6506,
         clicked: 6137,
@@ -34,6 +35,8 @@ const data = {
       status: "Sent",
       segment_id: 2,
       media: "https://images.unsplash.com/photo-1544220828-1becb7f7b284",
+      alt:
+        "A foot wearing a black-and-white heeled shoe steps on cotton candy against a blue background",
       stats: {
         sent: 7246,
         clicked: 7080,
@@ -47,6 +50,8 @@ const data = {
       status: "Preview",
       segment_id: 3,
       media: "https://images.unsplash.com/photo-1568485248685-019a98426c14",
+      alt:
+        "A 6X6 matrix of squashes and fall vegetables on a yellow background",
       stats: null,
     },
     {
@@ -57,6 +62,8 @@ const data = {
       status: "Preview",
       segment_id: 1,
       media: "https://images.unsplash.com/photo-1537800534001-f3e01aa1c34c",
+      alt:
+        "A skull with rainbow flowers emerging from its mouth against a pink background",
       stats: null,
     },
   ],

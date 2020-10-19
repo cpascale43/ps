@@ -22,7 +22,7 @@ const SegmentSelect = ({ handleChange }) => {
         <Column>
           <select
             className="form-control"
-            id="segmentSelect"
+            id="selectSegment"
             onChange={(e) => {
               let segment = segments.filter((s) => s.name === e.target.value);
               setSelectedSegment(...segment);

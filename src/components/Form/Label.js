@@ -1,8 +1,8 @@
 import React from "react";
 
-const Label = ({ labelText, id }) => {
+const Label = ({ labelText, htmlFor }) => {
   return (
-    <label htmlFor={id} className="labelStyles">
+    <label htmlFor={htmlFor} className="labelStyles">
       <span style={{ fontWeight: "bold" }}>{labelText}</span>
     </label>
   );

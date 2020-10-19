@@ -1,4 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Postscript App
+
+Based on feedback from the last round, effort was made to write readable code that is logically abstracted and easy for another developer to edit. That feedback is included below, along with the steps taken to mitigate each concern.
+Adequate unit test coverage is provided using React-Testing-Library and follows the following guidance from its [creator](https://twitter.com/kentcdodds/status/977018512689455106): "The more your tests resemble the way your software is used, the more confidence they can give you."
+Integration tests could be accomplished using [Cypress](https://www.cypress.io).
+
+- _incomplete requirements (preview / view / image etc.)_
+  - A user can view a list of `Sent` and `Preview` campaigns [X]
+  - A user can view information about a `Sent` campaign including performance stats [X]
+  - A user can edit a `Preview` campaign [X]
+  - A user can create a new campaign [X]
+  - In new and edited campaigns, a user can...
+    - view a live preview of the campaign [X]
+    - replace parts of the message with tags [X]
+    - select a target segment [X]
+    - add a media link [X]
+- _minimal test coverage_
+  - Test files written for every major UI element, testing functionality and accessibility where appropriate
+- _awkward abstractions (e.g. utility functions for classes)_
+  - Bootstrap CSS is used for classes and custom styling is kept at a minimum for reusability
+- _barebones component implementation_
+  - Component directory is organized by category and abstraction; e.g. `/components/PageElements` contains reusable page elements which are used in higher-order components. `/components/AddCampaign` contains one such higher-order component.
 
 ## Available Scripts
 
@@ -16,53 +37,3 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

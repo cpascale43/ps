@@ -26,18 +26,11 @@ const EditCampaignForm = ({ campaign }) => {
   });
 
   const handleChange = (key, value) => {
-    // do something onChanges
-
     if (key === "media") {
       value = URL.createObjectURL(value);
     }
     setCampaignData({ ...campaignData, [key]: value });
   };
-
-  // const handleChange = (e) => {
-  //   // do something onChanges
-  //   setcampaignData({ ...campaignData, [e.target.name]: e.target.value });
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();

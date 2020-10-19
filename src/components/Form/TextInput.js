@@ -8,7 +8,7 @@ import InputFieldContainer from "./InputFieldContainer";
 const TextInput = ({ name, id, value, labelText, handleChange }) => {
   return (
     <InputFieldContainer>
-      <Label labelText={labelText} />
+      <Label htmlFor={id} labelText={labelText} />
       <TextInputField
         id={id}
         name={name}
