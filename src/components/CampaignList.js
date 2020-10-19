@@ -4,7 +4,7 @@ import CampaignListItem from "./CampaignListItem";
 
 const CampaignList = ({ ...props }) => {
   return (
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th scope="col">Campaign</th>

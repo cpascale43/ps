@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import Container from "./Container";
 import EditCampaign from "./EditCampaign";
-import { CTRText, Name, Message, Image } from "./index";
+import { CTRText, Name, Message, Image, Row, Column } from "./index";
 import { CampaignContext } from "../contexts/campaigns";
 
 const Campaign = ({ id }) => {
@@ -20,16 +20,35 @@ const Campaign = ({ id }) => {
   if (campaign && campaign.status === "Preview") {
     return (
       <Container>
-        <EditCampaign campaign={campaign}/>
+        <EditCampaign campaign={campaign} />
       </Container>
     );
   } else if (campaign && campaign.status === "Sent") {
+    console.log("sent campaign rendering");
     return (
       <Container>
-        <Name name={campaign.name} />
-        <Message message={campaign.text} />
-        <Image imgSrc={campaign.media} />
-        <CTRText clicked={campaign.stats.clicked} sent={campaign.stats.sent} />
+        <Row>
+          <Column>
+            <Image imgSrc={campaign.media} />
+          </Column>
+
+          <Column>
+            <Row>
+              <Name name={campaign.name} />
+            </Row>
+
+            <Row>
+              <CTRText
+                clicked={campaign.stats.clicked}
+                sent={campaign.stats.sent}
+              />
+            </Row>
+
+            <Row>
+              <Message message={campaign.text} />
+            </Row>
+          </Column>
+        </Row>
       </Container>
     );
   } else if (!campaign.id) {

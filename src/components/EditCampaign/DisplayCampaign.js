@@ -1,20 +1,20 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-import { Row, Column, Name, Message, Image } from "../index";
+import { Row, Name, Message, Image } from "../index";
 
-const DisplayCampaign = ({ name, text, media }) => {
+const DisplayCampaign = ({ name, message, media }) => {
   return (
-    <Column>
+    <Fragment>
       <Row>
         <Name name={name} />
       </Row>
       <Row>
-        <Message message={text} />
+        <Message message={message} />
       </Row>
       <Row>
         <Image imgSrc={media} />
       </Row>
-    </Column>
+    </Fragment>
   );
 };
 export default DisplayCampaign;

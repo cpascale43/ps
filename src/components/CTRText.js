@@ -5,7 +5,11 @@ const CTRText = ({ clicked, sent }) => {
     if (!clicked || !sent) return "0";
     return Math.floor((clicked / sent) * 100);
   };
-  return <span>CTR: {getCTR(clicked, sent)}%</span>;
+  return (
+    <span>
+      <span style={{ fontWeight: "bold" }}>CTR:</span> {getCTR(clicked, sent)}%
+    </span>
+  );
 };
 
 export default CTRText;
