@@ -1,15 +1,18 @@
 import React, { Fragment } from "react";
 
-import { Row, Name, Message, Image } from "../index";
+import { Row, DisplayText, Image } from "../index";
 
-const DisplayCampaign = ({ name, message, media }) => {
+const DisplayCampaign = ({ name, message, media, alt }) => {
   return (
     <Fragment>
       <Row>
-        <Name name={name} />
+        <DisplayText text={name} label={"Name"} />
       </Row>
       <Row>
-        <Message message={message} />
+        <DisplayText text={message} label={"Message"} />
+      </Row>
+      <Row>
+        <DisplayText text={alt} label={"Alt text"} />
       </Row>
       <Row>
         <Image imgSrc={media} />

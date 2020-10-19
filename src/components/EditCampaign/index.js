@@ -22,7 +22,8 @@ const EditCampaignForm = ({ campaign }) => {
     text: campaign.text,
     segment_id: campaign.segment_id,
     tags: [],
-    media: campaign.media,
+    media: campaign.media || null,
+    alt: campaign.alt,
   });
 
   const handleChange = (key, value) => {
@@ -55,6 +56,7 @@ const EditCampaignForm = ({ campaign }) => {
             name={campaignData.name}
             message={campaignData.text}
             media={campaignData.media}
+            alt={campaignData.alt}
           />
         </Column>
         <Column>
@@ -77,6 +79,13 @@ const EditCampaignForm = ({ campaign }) => {
             <TagSelect handleClick={handleClickTags} />
             <MediaInput
               handleChange={(e) => handleChange("media", e.target.files[0])}
+            />
+            <TextInput
+              name={"alt"}
+              id={"alt"}
+              value={campaignData.alt}
+              labelText={"Alt text"}
+              handleChange={(e) => handleChange("alt", e.target.value)}
             />
             <Button
               classes={"btn btn-primary"}

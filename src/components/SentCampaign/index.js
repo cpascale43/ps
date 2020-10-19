@@ -1,16 +1,9 @@
 import React from "react";
 
-import {
-  Container,
-  Row,
-  Column,
-  Image,
-  Name,
-  CTRText,
-  Message,
-} from "../index";
+import { Container, Row, Column, Image, CTRText, DisplayText } from "../index";
 
 const SentCampaignView = ({ media, name, stats, message }) => {
+
   return (
     <Container>
       <Row>
@@ -20,7 +13,7 @@ const SentCampaignView = ({ media, name, stats, message }) => {
 
         <Column>
           <Row>
-            <Name name={name} />
+            <DisplayText text={name} label={"Name"} />
           </Row>
 
           <Row>
@@ -28,7 +21,7 @@ const SentCampaignView = ({ media, name, stats, message }) => {
           </Row>
 
           <Row>
-            <Message message={message} />
+            <DisplayText text={message} label={"Message"} />
           </Row>
         </Column>
       </Row>

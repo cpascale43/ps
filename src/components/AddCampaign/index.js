@@ -21,6 +21,7 @@ const AddCampaignForm = ({ props }) => {
     segment_id: "",
     tags: [],
     media: null,
+    alt: null,
   });
 
   const handleChange = (key, value) => {
@@ -65,6 +66,13 @@ const AddCampaignForm = ({ props }) => {
       <TagSelect handleClick={handleClickTags} />
       <MediaInput
         handleChange={(e) => handleChange("media", e.target.files[0])}
+      />
+      <TextInput
+        name={"alt"}
+        id={"alt"}
+        value={campaignData.alt}
+        labelText={"Alt text"}
+        handleChange={(e) => handleChange("alt", e.target.value)}
       />
       <Button
         classes={"btn btn-primary"}
