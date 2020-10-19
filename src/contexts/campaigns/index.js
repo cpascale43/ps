@@ -7,6 +7,17 @@ import campaignState, {
 } from "./reducer";
 import data from "../../data";
 
+// {
+//   id: number,
+//   media: string,
+//   name: string,
+//   segment_id: number,
+//   stats: { sent: number, clicked: number },
+//   status: string,
+//   text:
+//     string,
+// };
+
 const initialState = data;
 
 export const CampaignContext = createContext(initialState);

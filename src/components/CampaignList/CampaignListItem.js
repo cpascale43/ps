@@ -1,14 +1,15 @@
 import React from "react";
 
-import CampaignListItemButton from "./Button";
-import Badge from "./Badge";
+import CampaignListItemButton from "./CampaignListItemButton";
+import Badge from "../Form/Badge";
 
 const CampaignListItem = ({ id, name, status }) => {
+
   return (
     <tr>
       <th scope="row">{name}</th>
       <td>
-        <Badge badgeText={status} />
+        <Badge badgeText={status} type={status} />
       </td>
       <td>
         <CampaignListItemButton status={status} id={id} />

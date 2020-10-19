@@ -9,7 +9,7 @@ import Form from "../Form";
 import SegmentSelect from "../Form/SegmentSelect";
 import TagSelect from "../Form/TagSelect";
 import MediaInput from "../Form/MediaInput";
-import Button from "../AddCampaign/Button";
+import Button from "../PageElements/Button";
 import { CampaignContext } from "../../contexts/campaigns";
 
 const EditCampaignForm = ({ campaign }) => {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import Button from "../AddCampaign/Button";
-import Column from "../Column";
-import Row from "../Row";
+import Button from "../PageElements/Button";
+import Column from "../Layout/Column";
+import Row from "../Layout/Row";
+import InputFieldContainer from "./InputFieldContainer";
 import Label from "./Label";
 
 const TagOption = ({ ...tag }) => <option value={tag.value}>{tag.name}</option>;
@@ -16,7 +17,7 @@ const TagSelect = ({ handleClick }) => {
   ]);
 
   return (
-    <div className="form-group">
+    <InputFieldContainer>
       <Label id={"selectSegment"} labelText={"Tags"} />
       <Row className="form-group">
         <Column>
@@ -41,7 +42,7 @@ const TagSelect = ({ handleClick }) => {
           />
         </Column>
       </Row>
-    </div>
+    </InputFieldContainer>
   );
 };
 

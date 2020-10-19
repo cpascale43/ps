@@ -2,7 +2,7 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
-const Button = ({link, classes, buttonName}) => {
+const NavButton = ({link, classes, buttonName}) => {
   return (
     <NavLink to={link}>
       <button type="button" className={classes}>
@@ -12,4 +12,4 @@ const Button = ({link, classes, buttonName}) => {
   );
 };
 
-export default Button;
+export default NavButton;

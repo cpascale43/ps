@@ -1,3 +1,3 @@
-export {default as Home} from './Home'
-export {default as AddCampaign} from './AddCampaign'
-export {default as ViewCampaign} from './ViewCampaign'
+export {default as HomePage} from './HomePage'
+export {default as AddCampaignPage} from './AddCampaignPage'
+export {default as CampaignPage} from './CampaignPage'

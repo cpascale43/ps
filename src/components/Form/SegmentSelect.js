@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 
-import Column from "../Column";
-import Row from "../Row";
+import Column from "../Layout/Column";
+import Row from "../Layout/Row";
 import Label from "./Label";
+import Badge from "./Badge";
+import InputFieldContainer from "./InputFieldContainer"
 import { SegmentContext } from "../../contexts/segments";
 
 const SegmentOption = ({ ...segment }) => (
@@ -14,7 +16,7 @@ const SegmentSelect = ({ handleChange }) => {
   const [selectedSegment, setSelectedSegment] = useState(segments[0]);
 
   return (
-    <div className="form-group">
+    <InputFieldContainer>
       <Label id={"selectSegment"} labelText={"Segment"} />
       <Row className="form-group">
         <Column>
@@ -33,10 +35,13 @@ const SegmentSelect = ({ handleChange }) => {
           </select>
         </Column>
         <Column>
-          <span>{selectedSegment.subscribers_count} Members</span>
+          <Badge
+            type={"Members"}
+            badgeText={`${selectedSegment.subscribers_count} Members`}
+          />
         </Column>
       </Row>
-    </div>
+    </InputFieldContainer>
   );
 };
 

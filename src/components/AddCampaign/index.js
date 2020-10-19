@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import Button from "./Button";
+import Button from "../PageElements/Button";
 import { CampaignContext } from "../../contexts/campaigns";
 import TextInput from "../Form/TextInput";
 import MediaInput from "../Form/MediaInput";

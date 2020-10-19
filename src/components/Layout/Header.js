@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Button from "./Button";
+import NavButton from "../PageElements/NavButton";
 
 const Header = ({ title }) => {
   return (
@@ -9,7 +9,7 @@ const Header = ({ title }) => {
       <h1>
         <Link to="/">{title}</Link>
       </h1>
-      <Button
+      <NavButton
         link={"/campaign/new"}
         buttonName={"Create Campaign"}
         classes={"btn btn-primary btn-lg"}

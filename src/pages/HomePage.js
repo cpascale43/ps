@@ -6,7 +6,7 @@ import CampaignList from "../components/CampaignList";
 
 import {CampaignContext} from "../contexts/campaigns"
 
-const Home = () => {
+const HomePage = () => {
   const { campaigns } = useContext(CampaignContext);
   return (
     <Layout>
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

@@ -2,14 +2,14 @@
 
 import React from "react";
 import Layout from "../components/Layout";
-import Campaign from "../components/Campaign";
+import CampaignView from "../components/CampaignView";
 
 const ViewCampaign = (route) => {
   const id = route.match.params.id;
 
   return (
     <Layout>
-      <Campaign id={id} />
+      <CampaignView id={id} />
     </Layout>
   );
 };
