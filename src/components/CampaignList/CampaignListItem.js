@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { CampaignContext } from "../../contexts/campaigns";
 import CampaignListItemButton from "./CampaignListItemButton";
 import Badge from "../Form/Badge";
+import Button from "../PageElements/Button";
 
 const CampaignListItem = ({ id, name, status }) => {
+  const { removeCampaign } = useContext(CampaignContext);
 
   return (
     <tr>
@@ -13,6 +16,13 @@ const CampaignListItem = ({ id, name, status }) => {
       </td>
       <td>
         <CampaignListItemButton status={status} id={id} />
+        {status === "Preview" ? (
+          <Button
+            classes={"btn btn-outline-danger ml-2"}
+            buttonText={"Delete"}
+            onClick={() => removeCampaign(id)}
+          />
+        ) : null}
       </td>
     </tr>
   );
