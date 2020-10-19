@@ -15,25 +15,23 @@ export default (state, action) => {
       };
     case ADD_CAMPAIGN:
       const newCampaign = action.payload;
-      newCampaign.id = state.campaigns.length + 1;
+      newCampaign.id = action.id;
       
       return {
         ...state,
         campaigns: [...state.campaigns, newCampaign],
       };
     case EDIT_CAMPAIGN:
-      const updatedCampaign = action.payload;
-
-      const updatedCampaigns = state.campaigns.map((campaign) => {
-        if (campaign.id === updatedCampaign.id) {
-          return updatedCampaign;
+      const updateCampaigns = state.campaigns.map((campaign) => {
+        if (campaign.id === action.payload.id) {
+          return action.payload;
         }
         return campaign;
       });
 
       return {
         ...state,
-        campaigns: updatedCampaigns,
+        campaigns: updateCampaigns,
       };
     default:
       return state;

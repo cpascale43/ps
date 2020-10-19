@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-import campaignState, {
+import campaignReducer, {
   REMOVE_CAMPAIGN,
   ADD_CAMPAIGN,
   EDIT_CAMPAIGN,
@@ -22,28 +22,30 @@ const initialState = data;
 
 export const CampaignContext = createContext(initialState);
 export const CampaignProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(campaignState, initialState);
+  const [state, dispatch] = useReducer(campaignReducer, initialState);
 
-  function removeCampaign(id) {
+  const removeCampaign = (id) => {
     dispatch({
       type: REMOVE_CAMPAIGN,
       payload: id,
     });
-  }
+  };
 
-  function addCampaign(campaigns) {
+  let nextCampaignId = 0;
+  const addCampaign = (campaign) => {
     dispatch({
       type: ADD_CAMPAIGN,
-      payload: campaigns,
+      id: nextCampaignId++,
+      payload: campaign,
     });
-  }
+  };
 
-  function editCampaign(campaigns) {
+  const editCampaign = (campaign) => {
     dispatch({
       type: EDIT_CAMPAIGN,
-      payload: campaigns,
+      payload: campaign,
     });
-  }
+  };
 
   return (
     <CampaignContext.Provider
