@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import { CampaignProvider } from "./contexts/campaigns";
 import { SegmentProvider } from "./contexts/segments";
-import { HomePage, CampaignPage, AddCampaignPage } from "./pages";
+import { HomePage, CampaignPage, AddCampaignPage, NotFoundPage } from "./pages";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
           <Route path="/" component={HomePage} exact />
           <Route path="/campaign/new" component={AddCampaignPage} exact />
           <Route path="/campaign/:id" component={CampaignPage} exact />
+          <Route path="*" component={NotFoundPage} />
         </Switch>
       </SegmentProvider>
     </CampaignProvider>

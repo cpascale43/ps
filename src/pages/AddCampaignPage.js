@@ -1,4 +1,4 @@
-// Form
+// renders a form to create a new campaign
 
 import React from "react";
 import Layout from "../components/Layout";
