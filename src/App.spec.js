@@ -11,7 +11,7 @@ describe("<App />", () => {
 
     expect(screen.getByRole("heading")).toHaveTextContent("Postscript.io");
     expect(screen.getAllByRole("link")).toHaveLength(7);
-    expect(screen.getByText("Create Campaign")).toBeInTheDocument();
+    expect(screen.getByText(/create campaign/i)).toBeInTheDocument();
   });
 
   it("Renders <AddCampaignPage /> when Create Campaign button is clicked", () => {
@@ -19,7 +19,7 @@ describe("<App />", () => {
 
     fireEvent.click(getByText("Create Campaign"));
 
-    expect(screen.getByLabelText("Name")).toBeInTheDocument();
+    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
   });
 
   it("Renders <CampaignPage /> when a View button is clicked", () => {
@@ -31,20 +31,20 @@ describe("<App />", () => {
 
     fireEvent.click(buttons[0]);
 
-    expect(screen.getByText("CTR:")).toBeInTheDocument();
+    expect(screen.getByText(/ctr/i)).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
   });
 
   it("Renders <CampaignPage /> when an Edit button is clicked", () => {
     const { getAllByText } = render(<App />);
 
-    const buttons = getAllByText("Edit");
+    const buttons = getAllByText(/edit/i);
 
     expect(buttons).toHaveLength(2);
 
     fireEvent.click(buttons[0]);
 
-    expect(screen.getByText("Segment")).toBeInTheDocument();
+    expect(screen.getByText(/segment/i)).toBeInTheDocument();
     expect(screen.getByRole("form")).toBeInTheDocument();
   });
 });

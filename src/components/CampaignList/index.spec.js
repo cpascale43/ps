@@ -6,15 +6,17 @@ import "@testing-library/jest-dom/extend-expect";
 import CampaignList from "./index";
 import data from "../../data";
 
+// CampaignList renders a list of all Preview and Sent campaigns
+
 describe("<CampaignList />", () => {
   const campaigns = data.campaigns;
   it("Renders <CampaignList /> component", () => {
     render(<CampaignList campaigns={campaigns} />);
 
     expect(screen.getAllByRole("link")).toHaveLength(5);
-    expect(screen.getByText("Campaign")).toBeInTheDocument()
-    expect(screen.getByText("Status")).toBeInTheDocument()
-    expect(screen.getByText("Action")).toBeInTheDocument()
+    expect(screen.getByText(/campaign/i)).toBeInTheDocument();
+    expect(screen.getByText(/status/i)).toBeInTheDocument();
+    expect(screen.getByText(/action/i)).toBeInTheDocument();
   });
 
   it("Renders `No campaigns yet!` if there are no campaigns", () => {
@@ -33,7 +35,7 @@ describe("<CampaignList />", () => {
     render(<CampaignList campaigns={newCampaigns} />);
 
     expect(screen.getAllByRole("link")).toHaveLength(3);
-    expect(screen.getAllByText("Preview")).toHaveLength(2);
-    expect(screen.getAllByText("Sent")).toHaveLength(1);
+    expect(screen.getAllByText(/preview/i)).toHaveLength(2);
+    expect(screen.getAllByText(/sent/i)).toHaveLength(1);
   });
 });

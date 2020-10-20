@@ -28,7 +28,6 @@ const SegmentSelect = ({ handleChange, currentSegmentId }) => {
             onChange={(e) => {
               let segment = segments.filter((s) => s.name === e.target.value);
               setSelectedSegment(...segment);
-              console.log(segment, segment[0].id, typeof segment[0].id);
               handleChange("segment_id", segment[0].id);
             }}
           >
