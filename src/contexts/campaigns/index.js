@@ -31,11 +31,10 @@ export const CampaignProvider = ({ children }) => {
     });
   };
 
-  let nextCampaignId = 0;
   const addCampaign = (campaign) => {
     dispatch({
       type: ADD_CAMPAIGN,
-      id: nextCampaignId++,
+      id: state.campaigns.length + 1 || 1,
       payload: campaign,
     });
   };

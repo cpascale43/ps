@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 
 import { Column, Row } from "../PageElements";
 import { Label, Badge, InputFieldContainer } from "./index";
@@ -10,13 +10,11 @@ const SegmentOption = ({ ...segment }) => (
 
 const SegmentSelect = ({ handleChange, currentSegmentId }) => {
   const { segments } = useContext(SegmentContext);
-  const [selectedSegment, setSelectedSegment] = useState({});
-
-  // grabs the currently selected segment from state
-  useEffect(() => {
-    let segment = segments.filter((s) => s.id === currentSegmentId);
-    setSelectedSegment(...segment);
-  }, [currentSegmentId, segments]);
+  const [selectedSegment, setSelectedSegment] = useState(
+    !currentSegmentId
+      ? segments[0]
+      : segments.filter((s) => s.id === currentSegmentId)[0]
+  );
 
   return (
     <InputFieldContainer>
@@ -30,11 +28,12 @@ const SegmentSelect = ({ handleChange, currentSegmentId }) => {
             onChange={(e) => {
               let segment = segments.filter((s) => s.name === e.target.value);
               setSelectedSegment(...segment);
+              console.log(segment, segment[0].id, typeof segment[0].id);
               handleChange("segment_id", segment[0].id);
             }}
           >
-            {segments.map((t) => (
-              <SegmentOption key={t.id} {...t} />
+            {segments.map((s) => (
+              <SegmentOption key={s.id} {...s} />
             ))}
           </select>
         </Column>

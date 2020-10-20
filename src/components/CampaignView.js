@@ -29,8 +29,8 @@ const CampaignView = ({ id }) => {
         alt={campaign.alt}
       />
     );
-  } else if (!campaign.id) {
-    return <div>You haven't run any campaigns yet!</div>;
+  } else {
+    return <div>Oops, something happened!</div>;
   }
 };
 

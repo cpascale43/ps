@@ -8,7 +8,7 @@ import {
   TagSelect,
   SegmentSelect,
   Form,
-} from "../Form";
+} from "../FormElements";
 
 import { Button } from "../PageElements";
 import { CampaignContext } from "../../contexts/campaigns";

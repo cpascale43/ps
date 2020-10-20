@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { CampaignContext } from "../../contexts/campaigns";
 import CampaignListItemButton from "./CampaignListItemButton";
-import { Badge } from "../Form";
+import { Badge } from "../FormElements";
 import { Button } from "../PageElements";
 
 const CampaignListItem = ({ id, name, status }) => {

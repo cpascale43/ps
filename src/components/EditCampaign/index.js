@@ -8,7 +8,7 @@ import {
   SegmentSelect,
   TagSelect,
   MediaInput,
-} from "../Form";
+} from "../FormElements";
 import {
   Container,
   DisplayCampaign,
