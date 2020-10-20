@@ -1,15 +1,21 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import DisplayCampaign from "./DisplayCampaign";
-import { Container, Row, Column } from "../index";
-import TextArea from "../Form/TextArea";
-import TextInput from "../Form/TextInput";
-import Form from "../Form";
-import SegmentSelect from "../Form/SegmentSelect";
-import TagSelect from "../Form/TagSelect";
-import MediaInput from "../Form/MediaInput";
-import Button from "../PageElements/Button";
+import {
+  TextArea,
+  TextInput,
+  Form,
+  SegmentSelect,
+  TagSelect,
+  MediaInput,
+} from "../Form";
+import {
+  Container,
+  DisplayCampaign,
+  Row,
+  Column,
+  Button,
+} from "../PageElements";
 import { CampaignContext } from "../../contexts/campaigns";
 
 const EditCampaignForm = ({ campaign }) => {
@@ -17,13 +23,12 @@ const EditCampaignForm = ({ campaign }) => {
   const { editCampaign } = useContext(CampaignContext);
   const [campaignData, setCampaignData] = useState({
     status: "Preview",
-    id: campaign.id,
-    name: campaign.name,
-    text: campaign.text,
-    segment_id: campaign.segment_id,
-    tags: [],
-    media: campaign.media || null,
-    alt: campaign.alt,
+    id: campaign && campaign.id,
+    name: campaign && campaign.name,
+    text: campaign && campaign.text,
+    segment_id: campaign && campaign.segment_id,
+    media: campaign && campaign.media,
+    alt: campaign && campaign.alt,
   });
 
   const handleChange = (key, value) => {
@@ -44,7 +49,6 @@ const EditCampaignForm = ({ campaign }) => {
     setCampaignData({
       ...campaignData,
       text: campaignData.text + tag,
-      tags: [...campaignData.tags, tag],
     });
   };
 
@@ -75,7 +79,10 @@ const EditCampaignForm = ({ campaign }) => {
               labelText={"Message"}
               handleChange={(e) => handleChange("text", e.target.value)}
             />
-            <SegmentSelect handleChange={handleChange} />
+            <SegmentSelect
+              handleChange={handleChange}
+              currentSegmentId={campaign && campaign.segment_id}
+            />
             <TagSelect handleClick={handleClickTags} />
             <MediaInput
               handleChange={(e) => handleChange("media", e.target.files[0])}

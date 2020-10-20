@@ -1,14 +1,17 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import Button from "../PageElements/Button";
+import {
+  TextInput,
+  MediaInput,
+  TextArea,
+  TagSelect,
+  SegmentSelect,
+  Form,
+} from "../Form";
+
+import { Button } from "../PageElements";
 import { CampaignContext } from "../../contexts/campaigns";
-import TextInput from "../Form/TextInput";
-import MediaInput from "../Form/MediaInput";
-import TextArea from "../Form/TextArea";
-import TagSelect from "../Form/TagSelect";
-import SegmentSelect from "../Form/SegmentSelect";
-import Form from "../Form";
 
 const AddCampaignForm = ({ props }) => {
   let history = useHistory();
@@ -18,8 +21,7 @@ const AddCampaignForm = ({ props }) => {
     id: null,
     name: "",
     text: "",
-    segment_id: "",
-    tags: [],
+    segment_id: null,
     media: null,
     alt: null,
   });
@@ -36,7 +38,6 @@ const AddCampaignForm = ({ props }) => {
     setCampaignData({
       ...campaignData,
       text: campaignData.text + tag,
-      tags: [...campaignData.tags, tag],
     });
   };
 

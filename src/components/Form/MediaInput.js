@@ -1,11 +1,11 @@
 import React from "react";
-import InputFieldContainer from "./InputFieldContainer";
-import Label from "./Label";
+
+import { InputFieldContainer, Label } from "./index";
 
 const MediaInput = ({ handleChange }) => {
   return (
     <InputFieldContainer>
-      <Label id={"Media"} labelText={"Media"} />
+      <Label htmlFor={"Media"} labelText={"Media"} />
       <div className="custom-file">
         <input
           type="file"
@@ -14,9 +14,11 @@ const MediaInput = ({ handleChange }) => {
           name="image"
           onChange={handleChange}
         />
-        <label className="custom-file-label" htmlFor="Media">
-          Choose file
-        </label>
+        <Label
+          labelText={"Choose file"}
+          classes="custom-file-label"
+          htmlFor="Media"
+        />
       </div>
     </InputFieldContainer>
   );

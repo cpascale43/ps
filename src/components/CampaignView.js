@@ -2,10 +2,10 @@
 // if sent campaign, returns view only
 
 import React, { useContext, useEffect, useState } from "react";
-import { CampaignContext } from "../contexts/campaigns";
 
-import EditCampaignView from "./EditCampaign";
-import SentCampaignView from "./SentCampaign";
+import EditCampaign from "./EditCampaign";
+import DisplayCampaign from "./PageElements/DisplayCampaign";
+import { CampaignContext } from "../contexts/campaigns";
 
 const CampaignView = ({ id }) => {
   const [campaign, setCampaign] = useState({});
@@ -18,14 +18,15 @@ const CampaignView = ({ id }) => {
   }, [campaigns, id]);
 
   if (campaign && campaign.status === "Preview") {
-    return <EditCampaignView campaign={campaign} />;
+    return <EditCampaign campaign={campaign} />;
   } else if (campaign && campaign.status === "Sent") {
     return (
-      <SentCampaignView
+      <DisplayCampaign
         media={campaign.media}
         name={campaign.name}
         stats={campaign.stats}
         message={campaign.text}
+        alt={campaign.alt}
       />
     );
   } else if (!campaign.id) {

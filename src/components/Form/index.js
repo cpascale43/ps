@@ -1,7 +1,10 @@
-import React from "react";
-
-const Form = ({ children }) => {
-  return <form name={"form"}>{children}</form>;
-};
-
-export default Form;
+export { default as Badge } from "./Badge";
+export { default as Form } from "./Form";
+export { default as InputFieldContainer } from "./InputFieldContainer";
+export { default as Label } from "./Label";
+export { default as MediaInput } from "./MediaInput";
+export { default as SegmentSelect } from "./SegmentSelect";
+export { default as TagSelect } from "./TagSelect";
+export { default as TextArea } from "./TextArea";
+export { default as TextInput } from "./TextInput";
+export { default as TextInputField } from "./TextInputField";

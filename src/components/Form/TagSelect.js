@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
-import Button from "../PageElements/Button";
-import Column from "../Layout/Column";
-import Row from "../Layout/Row";
-import InputFieldContainer from "./InputFieldContainer";
-import Label from "./Label";
+import { Button, Column, Row } from "../PageElements";
+import { Label, InputFieldContainer } from "./index";
 
 const TagOption = ({ ...tag }) => <option value={tag.value}>{tag.name}</option>;
 
@@ -18,7 +15,7 @@ const TagSelect = ({ handleClick }) => {
 
   return (
     <InputFieldContainer>
-      <Label id={"selectSegment"} labelText={"Tags"} />
+      <Label htmlFor={"selectSegment"} labelText={"Tags"} />
       <Row className="form-group">
         <Column>
           <select

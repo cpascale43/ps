@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 
 import { CampaignContext } from "../../contexts/campaigns";
 import CampaignListItemButton from "./CampaignListItemButton";
-import Badge from "../Form/Badge";
-import Button from "../PageElements/Button";
+import { Badge } from "../Form";
+import { Button } from "../PageElements";
 
 const CampaignListItem = ({ id, name, status }) => {
   const { removeCampaign } = useContext(CampaignContext);

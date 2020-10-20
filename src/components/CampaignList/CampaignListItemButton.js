@@ -11,9 +11,7 @@ const CampaignListItemButton = ({ status, id }) => {
 
   return (
     <Link to={`/campaign/${id}`}>
-      <span className="btn btn-outline-dark">
-        {buttonText}
-      </span>
+      <span className="btn btn-outline-dark">{buttonText}</span>
     </Link>
   );
 };

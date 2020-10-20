@@ -18,7 +18,11 @@ function Campaign() {
   return "Indeed, there are campaigns!";
 }
 
-test("Campaign returns campaigns from the Campaign Context", () => {
-  render(<App />);
-  expect(screen.getByText("Indeed, there are campaigns!")).toBeInTheDocument();
+describe("CampaignContext", () => {
+  it("Returns campaigns from the Campaign Context", () => {
+    render(<App />);
+    expect(
+      screen.getByText("Indeed, there are campaigns!")
+    ).toBeInTheDocument();
+  });
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import NavButton from "../PageElements/NavButton";
+import NavButton from "./NavButton";
 
 const Header = ({ title }) => {
   return (

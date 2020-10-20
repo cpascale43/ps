@@ -1,32 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-import Column from "../Layout/Column";
-import Row from "../Layout/Row";
-import Label from "./Label";
-import Badge from "./Badge";
-import InputFieldContainer from "./InputFieldContainer"
+import { Column, Row } from "../PageElements";
+import { Label, Badge, InputFieldContainer } from "./index";
 import { SegmentContext } from "../../contexts/segments";
 
 const SegmentOption = ({ ...segment }) => (
   <option value={segment.value}>{segment.name}</option>
 );
 
-const SegmentSelect = ({ handleChange }) => {
+const SegmentSelect = ({ handleChange, currentSegmentId }) => {
   const { segments } = useContext(SegmentContext);
-  const [selectedSegment, setSelectedSegment] = useState(segments[0]);
+  const [selectedSegment, setSelectedSegment] = useState({});
+
+  // grabs the currently selected segment from state
+  useEffect(() => {
+    let segment = segments.filter((s) => s.id === currentSegmentId);
+    setSelectedSegment(...segment);
+  }, [currentSegmentId, segments]);
 
   return (
     <InputFieldContainer>
-      <Label id={"selectSegment"} labelText={"Segment"} />
+      <Label htmlFor={"selectSegment"} labelText={"Segment"} />
       <Row className="form-group">
         <Column>
           <select
             className="form-control"
             id="selectSegment"
+            value={selectedSegment && selectedSegment.name}
             onChange={(e) => {
               let segment = segments.filter((s) => s.name === e.target.value);
               setSelectedSegment(...segment);
-              handleChange("segment_id", segment[0].id.toString());
+              handleChange("segment_id", segment[0].id);
             }}
           >
             {segments.map((t) => (
@@ -37,7 +41,9 @@ const SegmentSelect = ({ handleChange }) => {
         <Column>
           <Badge
             type={"Members"}
-            badgeText={`${selectedSegment.subscribers_count} Members`}
+            badgeText={`${
+              selectedSegment && selectedSegment.subscribers_count
+            } Members`}
           />
         </Column>
       </Row>

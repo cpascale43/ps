@@ -1,9 +1,9 @@
-// CampaignList (table)
+// renders a list of Preview and Sent campaigns
 
 import React, { useContext } from "react";
-import Layout from "../components/Layout";
-import CampaignList from "../components/CampaignList";
 
+import { Layout } from "../components/PageElements";
+import CampaignList from "../components/CampaignList";
 import { CampaignContext } from "../contexts/campaigns";
 
 const HomePage = () => {

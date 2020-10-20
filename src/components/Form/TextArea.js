@@ -1,14 +1,10 @@
-// message
-
 import React from "react";
-import Label from "./Label";
-// import TextAreaField from "./TextAreaField";
-import InputFieldContainer from "./InputFieldContainer";
+import { Label, InputFieldContainer } from "./index";
 
 const TextArea = ({ name, id, labelText, value, handleChange }) => {
   return (
     <InputFieldContainer>
-      <Label labelText={labelText} />
+      <Label htmlFor={id} labelText={labelText} />
       <textarea
         className="form-control"
         id={id}
@@ -16,12 +12,6 @@ const TextArea = ({ name, id, labelText, value, handleChange }) => {
         value={value}
         onChange={handleChange}
       />
-      {/* <TextAreaField
-        id={id}
-        name={name}
-        value={value}
-        onChange={handleChange}
-      /> */}
     </InputFieldContainer>
   );
 };

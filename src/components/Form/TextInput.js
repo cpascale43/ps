@@ -1,9 +1,5 @@
-// name
-
 import React from "react";
-import Label from "./Label";
-import TextInputField from "./TextInputField";
-import InputFieldContainer from "./InputFieldContainer";
+import { Label, TextInputField, InputFieldContainer } from "./index";
 
 const TextInput = ({ name, id, value, labelText, handleChange }) => {
   return (

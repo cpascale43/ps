@@ -18,7 +18,9 @@ function Segment() {
   return "Indeed, there are segments!";
 }
 
-test("Segment returns segments from SegmentContext", () => {
-  render(<App />);
-  expect(screen.getByText("Indeed, there are segments!")).toBeInTheDocument();
+describe("CampaignContext", () => {
+  it("Returns segments from the Campaign Context", () => {
+    render(<App />);
+    expect(screen.getByText("Indeed, there are segments!")).toBeInTheDocument();
+  });
 });
