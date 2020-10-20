@@ -17,15 +17,11 @@ const setup = () => {
   const messageInput = utils.getByLabelText(/message/i);
   const segmentInput = utils.getByLabelText(/segment/i);
   const tagsInput = utils.getByLabelText(/tags/i);
-  const mediaInput = utils.getByLabelText(/media/i);
-  const altText = utils.getByLabelText(/alt text/i);
   return {
     nameInput,
     messageInput,
     segmentInput,
     tagsInput,
-    mediaInput,
-    altText,
     ...utils,
   };
 };
@@ -35,9 +31,6 @@ const newCampaign = {
   name: "New Campaign",
   message: "Hi! I'm a test campaign",
   segment_value: "All Subscribers",
-  img: "https://unsplash.com/photos/OI1ToozsKBw",
-  gif: "https://media.giphy.com/media/2D8g2rXcWx1DO/giphy.gif",
-  alt: "Wall-E looks up at to the left of the camera",
 };
 
 describe("<EditCampaign />", () => {
