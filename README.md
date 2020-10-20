@@ -1,7 +1,9 @@
 # Postscript App
 
-Based on feedback from the last round, effort was made to write readable code that is logically abstracted and easy for another developer to edit. That feedback is included below, along with the steps taken to mitigate each concern.
-Adequate unit test coverage is provided using React-Testing-Library and follows the following guidance from its [creator](https://twitter.com/kentcdodds/status/977018512689455106): "The more your tests resemble the way your software is used, the more confidence they can give you."
+Based on feedback received previously, effort was made to write readable code that is logically abstracted and easy for another developer to edit. That feedback is included below, along with the steps taken to mitigate each concern.
+
+Adequate unit test coverage is provided using React-Testing-Library and follows the following guidance from its creator, [Kent Dodds](https://twitter.com/kentcdodds/status/977018512689455106): "The more your tests resemble the way your software is used, the more confidence they can give you."
+
 Integration tests could be accomplished using [Cypress](https://www.cypress.io).
 
 - _incomplete requirements (preview / view / image etc.)_
